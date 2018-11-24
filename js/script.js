@@ -23,14 +23,20 @@ let quotes = [{
   }
 ];
 
-function getRandomQuote() {
-  let randomNumber = Math.floor(Math.random() * (quotes.length));
-  return quotes[randomNumber];
+let colors = [
+  'blue', 'red', 'green', 'purple', 'brown', 'yellow', 'orange'
+];
+
+// Gets a random item from an array
+function getRandomItem(itemList) {
+  let randomNumber = Math.floor(Math.random() * (itemList.length));
+  return itemList[randomNumber];
 }
 
+// Prints a random quote to index.html
 function printQuote(){
   let html = '';
-  let randomQuote = getRandomQuote();
+  let randomQuote = getRandomItem(quotes);
 
   html += '<p class="quote">' + randomQuote.quote + '</p>';
   html += '<p class="source">' + randomQuote.source;
@@ -45,4 +51,14 @@ function printQuote(){
   document.getElementById('quote-box').innerHTML = html;
 }
 
+// Randomly changes the background color of index.html
+function changeBackgroundColor(){
+  document.body.style.backgroundColor = getRandomItem(colors);
+}
+
+// Calls these functions on each click of the button on index.html
 document.getElementById('loadQuote').addEventListener("click", printQuote, false);
+document.getElementById('loadQuote').addEventListener("click", changeBackgroundColor, false);
+
+// Changes the background color every 5 seconds
+setInterval(changeBackgroundColor, 5000);
