@@ -56,9 +56,14 @@ function changeBackgroundColor(){
   document.body.style.backgroundColor = getRandomItem(colors);
 }
 
-// Calls these functions on each click of the button on index.html
-document.getElementById('loadQuote').addEventListener("click", printQuote, false);
-document.getElementById('loadQuote').addEventListener("click", changeBackgroundColor, false);
+// Bundles these functions so they can be called together
+function callChanges(){
+  printQuote();
+  changeBackgroundColor();
+}
 
-// Changes the background color every 5 seconds
-setInterval(changeBackgroundColor, 5000);
+// Changes the quote and background color on each click of the button on index.html
+document.getElementById('loadQuote').addEventListener("click", callChanges, false);
+
+// Changes the quote and background color every 5 seconds
+setInterval(callChanges, 5000);
