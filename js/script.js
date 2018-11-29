@@ -1,15 +1,17 @@
 let quotes = [{
     quote: 'Darkness cannot drive out darkness: only light can do that. Hate cannot drive out hate: only love can do that.',
     source: 'Dr. Martin Luther King Jr.',
-    citation: 'A Testament of Hope: The Essential Writings and Speeches'
+    citation: 'A Testament of Hope: The Essential Writings and Speeches',
+    tags: 'One of my childhood heroes'
   },
   {
     quote: 'I have not failed. I\'ve just found 10,000 ways that won\'t work.',
-    source: 'Thomas A. Edison'
+    source: 'Thomas A. Edison',
+    tags: 'One of my childhood heroes'
   },
   {
     quote: 'Being deeply loved by someone gives you strength, while loving someone deeply gives you courage.',
-    source: 'Lao Tzu '
+    source: 'Lao Tzu'
   },
   {
     quote: 'It takes a great deal of bravery to stand up to our enemies, but just as much to stand up to our friends.',
@@ -40,6 +42,9 @@ function printQuote(){
 
   html += '<p class="quote">' + randomQuote.quote + '</p>';
   html += '<p class="source">' + randomQuote.source;
+  if(randomQuote.tags){
+    html += '<span class="tags">' + randomQuote.tags + '</span>';
+  }
   if(randomQuote.citation){
     html += '<span class="citation">' + randomQuote.citation + '</span>';
   }
